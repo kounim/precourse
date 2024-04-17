@@ -5,16 +5,16 @@ TARGET_DIR = target
 TARGET = $(TARGET_DIR)/helloworld
 
 $(TARGET): $(OBJS) | $(TARGET_DIR)
-	$(CC) -o $@ $^
+	$(CC) -o $(TARGET) $(OBJS)
 
 $(TARGET_DIR):
-	mkdir -p $@
+	mkdir -p $(TARGET_DIR)
 
 main.o: main.c hw.c
-	$(CC) $(CFLAGS) -c $^
+	$(CC) $(CFLAGS) -c main.c
 
 hw.o: hw.c
-	$(CC) $(CFLAGS) -c $^
+	$(CC) $(CFLAGS) -c hw.c
 
 clean:
 	rm -f *.o $(TARGET)
